@@ -6,8 +6,8 @@ env
 !env/.example.env
 
 # Node.js
-nodejs/node_modules
-nodejs/package-lock.json
+javascript/node_modules
+javascript/package-lock.json
 
 # python
 python/venv
