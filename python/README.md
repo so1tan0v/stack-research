@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 #### Granian
 ```bash 
-cd granian; granian --interface asgi main:app --port 3000 --workers 5
+cd granian; granian --interface asgi main:app --port 3000 --workers 1
 ```
 
 #### FastAPI

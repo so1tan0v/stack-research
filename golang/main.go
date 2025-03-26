@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"os"
 	"runtime"
+
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
 )
 
 var db *sql.DB
@@ -108,7 +108,7 @@ func startServer() {
 
 	runtime.GOMAXPROCS(1)
 
-    fmt.Println(fmt.Sprintf("Server started on port %s", port))
+	fmt.Println(fmt.Sprintf("Server started on port %s", port))
 
 	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
 		log.Fatalf("Server failed: %v", err)
@@ -117,10 +117,10 @@ func startServer() {
 
 // Start app
 func main() {
-	err := godotenv.Load("../env/.env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := godotenv.Load("../env/.env")
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
 
 	var errDB error
 	db, errDB = initDB()

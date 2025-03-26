@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  master:
+    image: locustio/locust
+    networks:
+      - research-network
+    ports:
+     - "8089:8089"
+     - "5557:5557"
+    volumes:
+      - ./locust:/mnt/locust
+    command: -f /mnt/locust/locust.py --master --expect-workers 5
+
+  worker:
+    image: locustio/locust
+    networks:
+      - research-network
+    volumes:
+      - ./locust:/mnt/locust
+    command: -f /mnt/locust/locust.py --worker --master-host=master
+    deploy:
+      mode: replicated
+      replicas: 5
+
+networks:
+  research-network:
+    driver: bridge

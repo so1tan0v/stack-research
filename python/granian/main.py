@@ -1,10 +1,7 @@
 import os
-import asyncio
 import asyncmy
-import uvicorn
 import json
 
-from fastapi import FastAPI
 from dotenv import load_dotenv
 
 dotenv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../env/.env")

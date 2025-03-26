@@ -1,9 +1,0 @@
-locust
-granian
-multiprocessing
-orjson
-aiomysql
-python-dotenv
-uvicorn
-asyncmy
-fastapi
