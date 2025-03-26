@@ -6,8 +6,8 @@ COPY go.mod go.sum ./
 RUN go mod tidy
 
 COPY . .
-RUN go build -o myapp .
+RUN go build -o research .
 
 EXPOSE 3000
 
-CMD ["./myapp"]
+CMD ["./research"]
