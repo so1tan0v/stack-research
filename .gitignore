@@ -1,0 +1,16 @@
+# IDE
+.idea
+
+# Env
+env
+!env/.example.env
+
+# Node.js
+nodejs/node_modules
+nodejs/package-lock.json
+
+# python
+python/venv
+
+# GoLang
+golang/research
