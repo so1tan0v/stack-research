@@ -8,6 +8,11 @@
 
 ## Start app
 
+### Install packages
+```bash
+npm install
+```
+
 ### Vanila
 ```bash 
 node vanila.js
