@@ -72,7 +72,7 @@ services:
       - ./languages/javascript:/app
     command: ["sh", "-c", "bun install -f && bun run fastify.js"]
     ports:
-      - "3003:3000"
+      - "3004:3000"
     deploy:
       resources:
         limits:
