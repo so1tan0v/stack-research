@@ -3,29 +3,29 @@ version: '3.8'
 services:
   nodejs-vanila-app:
     image: node:23
-    working_dir: /app
+    working_dir: /app_vanila
     env_file:
       - env/.env
     volumes:
-      - ./javascript:/app
-    command: ["sh", "-c", "npm install && node vanila.js"]
+      - ./languages/javascript:/app_vanila
+    command: ["sh", "-c", "npm install -f && node vanila.js"]
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
 
   nodejs-fastify-app:
     image: node:23
-    working_dir: /app
+    working_dir: /app_fastify
     env_file:
       - env/.env
     volumes:
-      - ./javascript:/app
-    command: ["sh", "-c", "npm install && node fastify.js"]
+      - ./languages/javascript:/app_fastify
+    command: ["sh", "-c", "npm install -f && node fastify.js"]
     ports:
       - "3001:3000"
-    environment:
-      - NODE_ENV=production
     deploy:
       resources:
         limits:
@@ -33,16 +33,14 @@ services:
 
   nodejs-express-app:
     image: node:23
-    working_dir: /app
+    working_dir: /app_express
     env_file:
       - env/.env
     volumes:
-      - ./javascript:/app
-    command: ["sh", "-c", "npm install && node fastify.js"]
+      - ./languages/javascript:/app_express
+    command: ["sh", "-c", "npm install -f && node fastify.js"]
     ports:
       - "3002:3000"
-    environment:
-      - NODE_ENV=production
     deploy:
       resources:
         limits:
@@ -54,12 +52,10 @@ services:
     env_file:
       - env/.env
     volumes:
-      - ./javascript:/app
-    command: ["sh", "-c", "bun install && bun run vanila.js"]
+      - ./languages/javascript:/app
+    command: ["sh", "-c", "bun install -f && bun run vanila.js"]
     ports:
       - "3003:3000"
-    environment:
-      - NODE_ENV=production
     deploy:
       resources:
         limits:

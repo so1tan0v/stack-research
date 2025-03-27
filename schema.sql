@@ -1,5 +1,6 @@
 CREATE DATABASE research;
 
+USE research;
 CREATE TABLE test(
     id int AUTO_INCREMENT PRIMARY KEY,
     code varchar(100),

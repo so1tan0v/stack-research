@@ -1,6 +1,0 @@
-granian
-orjson
-aiomysql
-python-dotenv
-uvicorn
-asyncmy

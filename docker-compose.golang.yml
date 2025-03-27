@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  golang-vanila-app:
+    build: ./languages/golang
+    env_file:
+      - env/.env
+    ports:
+      - "3020:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
+networks:
+  research-network:
+    driver: bridge

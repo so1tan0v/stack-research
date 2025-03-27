@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  python-fastapi-app:
+    build: ./languages/python/fastapi
+    env_file:
+      - env/.env
+    ports:
+      - "3010:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
+  python-granian-app:
+    build: ./languages/python/granian
+    env_file:
+      - env/.env
+    ports:
+      - "3011:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+    networks:
+      - research-network
+
+networks:
+  research-network:
+    driver: bridge
