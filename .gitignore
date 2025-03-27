@@ -4,15 +4,3 @@
 # Env
 env
 !env/.example.env
-
-# Node.js
-javascript/node_modules
-javascript/package-lock.json
-
-# python
-python/venv
-__pycache__
-**/__pycache__
-
-# GoLang
-golang/research

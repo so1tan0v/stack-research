@@ -1,0 +1,6 @@
+# Packages
+node_modules
+
+# Tmp
+bun.lock
+package-lock.json

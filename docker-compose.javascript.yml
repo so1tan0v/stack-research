@@ -63,6 +63,23 @@ services:
     networks:
       - research-network
 
+  bun-fastify-app:
+    image: oven/bun
+    working_dir: /app
+    env_file:
+      - env/.env
+    volumes:
+      - ./languages/javascript:/app
+    command: ["sh", "-c", "bun install -f && bun run fastify.js"]
+    ports:
+      - "3003:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+    networks:
+      - research-network
+
 networks:
   research-network:
     driver: bridge
