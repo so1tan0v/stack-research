@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: research
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    # По умолчанию значение max_connections в mysql равно 151.
+    # Если вы хотите увеличить это значение, вы можете использовать переменную окружения MYSQL_MAX_CONNECTIONS.
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - research-network
+
+networks:
+  research-network:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
