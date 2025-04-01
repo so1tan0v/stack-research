@@ -1,4 +1,6 @@
 # IDE
+.vs
+.vscode
 .idea
 
 # Env

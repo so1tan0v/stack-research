@@ -1,0 +1,52 @@
+version: "3.8"
+
+x-defaults: &defaults
+  env_file:
+    - env/.env
+  environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+  deploy:
+    resources:
+      limits:
+        cpus: "1"
+  networks:
+    - research-network
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+
+services:
+  dotnet8-controllers-app:
+    build:
+      context: .
+      dockerfile: ./languages/dotnet/Net8-Controllers/Dockerfile
+    ports:
+      - "5000:8080"
+    <<: *defaults
+    
+  dotnet8-minimalapi-app:
+    build:
+      context: .
+      dockerfile: ./languages/dotnet/Net8-MinimalApi/Dockerfile
+    ports:
+      - "5001:8080"
+    <<: *defaults
+
+  dotnet9-controllers-app:
+    build:
+      context: .
+      dockerfile: ./languages/dotnet/Net9-Controllers/Dockerfile
+    ports:
+      - "5002:8080"
+    <<: *defaults
+
+  dotnet9-minimalapi-app:
+    build:
+      context: .
+      dockerfile: ./languages/dotnet/Net9-MinimalApi/Dockerfile
+    ports:
+      - "5003:8080"
+    <<: *defaults
+
+networks:
+  research-network:
+    driver: bridge

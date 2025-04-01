@@ -9,6 +9,7 @@
 
 ## Инструменты тестирования:
 * [wrk](https://github.com/wg/wrk) - Инструмент для бенчмарка HTTP сервисов
+* [bombardier](https://github.com/codesenberg/bombardier) – Инструмент для бенчмарка HTTP сервисов, который может работать в Windows.
 * [Locust](https://locust.io/) - Сервис для нагрузочно тестирования
 
 
@@ -22,6 +23,10 @@
     * [Granian](https://fastapi.tiangolo.com/)
 * [GoLang](https://go.dev/)
     * [Vanila](https://pkg.go.dev/net/http)
+* [.NET](https://go.dev/)
+    * [ASP.NET Core](https://github.com/dotnet/aspnetcore) + [Kestrel Web Server](https://learn.microsoft.com/ru-ru/aspnet/core/fundamentals/servers/kestrel)
+      * [Minimal API](https://learn.microsoft.com/ru-ru/aspnet/core/tutorials/min-web-api?view=aspnetcore-9.0)
+      * [Controllers](https://learn.microsoft.com/ru-ru/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0)
 
 ## Среда для тестирования
 
@@ -29,17 +34,19 @@
 Используются два инструмента:
 * [Locust](https://locust.io/) – open-source инструмент на Python, визуализирующий нагрузку в реальном времени.
 * [wrk](https://github.com/wg/wrk) – высокопроизводительный инструмент на C для бенчмаркинга HTTP-запросов.
+* [bombardier](https://github.com/codesenberg/bombardier) – высокопроизводительный инструмент на Go для бенчмаркинга HTTP-запросов.
 
 Настройки окружения для тестов:
 * [Locust](https://locust.io/): 5 воркеров, 750 пользователей (добавляются по 100 в секунду).
-* [wrk](https://github.com/wg/wrk): 5 потоков по 50 подключений.
+* [wrk](https://github.com/wg/wrk) / [bombardier](https://github.com/codesenberg/bombardier): 5 потоков по 50 подключений.
 
-## Исторукия запуска приложений
+## История запуска приложений
 
 По каждому их технлогических стеков была создана README.md:
-* [Node.js](./nodejs/README.md)
-* [Python](./python/README.md)
-* [GoLang](./golang/README.md)
+* [Node.js](./languages/javascript/README.md)
+* [Python](./languages/python/README.md)
+* [GoLang](./languages/golang/README.md)
+* [ASP.NET Core](./languages/dotnet/README.md)
 
 ## Запуск тестов
 
@@ -63,14 +70,22 @@ locust -f locust.py --worker --master-host=127.0.0.1 &
 ```
 
 После этого приложение будет доступно на порту 8089 и там вы можете запускать тесты.
-Все конфиги тестов лежат [тут](locust.py)
+Все конфиги тестов лежат [тут](locust/locust.py)
 
 ### wrk
 
-Запуск теста производиться таким образом:
-```bash 
+Запуск теста производится таким образом:
+```bash
 wrk -t 5 -c 50 -d 10s http://localhost:5001/endpoint_slow;
 wrk -t 5 -c 50 -d 10s http://localhost:5001/endpoint_fast;
+```
+
+### bombardier
+
+Запуск теста производится таким образом (настройки аналогичны wrk):
+```bash
+.\bombardier.exe -c 50 -d 10s http://localhost:5000/endpoint_slow
+.\bombardier.exe -c 50 -d 10s http://localhost:5000/endpoint_fast
 ```
 
 
@@ -84,10 +99,10 @@ wrk -t 5 -c 50 -d 10s http://localhost:5001/endpoint_fast;
 
 # Результаты тестирования
 
-Ниже будут показаны результаты тестирования только endpoint_slow - Мгновенный возврат ответа.
+Ниже будут показаны результаты тестирования только endpoint_fast - Мгновенный возврат ответа.
 Тем самым мы получим максимально возможное кол-во обработанных запросов
 
-Тестирование endpoint_fast с запросами к БД считаю не объективными, т.к. моя машина просто не способна обрабатывать столько запросов на БД
+Тестирование endpoint_slow с запросами к БД считаю не объективными, т.к. моя машина просто не способна обрабатывать столько запросов на БД
 
 ## Python
 
