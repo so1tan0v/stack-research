@@ -1,6 +1,6 @@
-granian
-orjson
-aiomysql
-python-dotenv
-uvicorn
-asyncmy
+granian==2.2.1
+orjson==3.10.16
+asyncmy==0.2.10
+python-dotenv==1.1.0
+cryptography==44.0.2
+uvloop==0.21.0
