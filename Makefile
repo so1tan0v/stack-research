@@ -1,3 +1,5 @@
+.PHONY: start-locust stop-locust start-mysql stop-mysql start-javascript-apps stop-javascript-apps start-python-apps stop-python-apps start-golang-apps stop-golang-apps start-dotnet-apps stop-dotnet-apps
+
 # Tests
 start-locust:
 	docker compose -f docker-compose.locust.yml -p research-test-locust up -d
@@ -29,3 +31,20 @@ stop-golang-apps:
 stop-dotnet-apps:
 	docker compose -p research-dotnet down
 
+
+
+help:
+	@echo "Usage: make <target>"
+	@echo "Targets:"
+	@echo "  start-locust - Start Locust"
+	@echo "  stop-locust - Stop Locust"
+	@echo "  start-mysql - Start MySQL"
+	@echo "  stop-mysql - Stop MySQL"
+	@echo "  start-javascript-apps - Start Node.js apps"
+	@echo "  stop-javascript-apps - Stop Node.js apps"
+	@echo "  start-python-apps - Start Python apps"
+	@echo "  stop-python-apps - Stop Python apps"
+	@echo "  start-golang-apps - Start Go apps"
+	@echo "  stop-golang-apps - Stop Go apps"
+	@echo "  start-dotnet-apps - Start ASP.NET Core apps"
+	@echo "  stop-dotnet-apps - Stop ASP.NET Core apps"

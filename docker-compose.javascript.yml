@@ -15,6 +15,8 @@ services:
       resources:
         limits:
           cpus: "1"
+    networks:
+      - research-network
 
   nodejs-fastify-app:
     image: node:23
@@ -30,6 +32,8 @@ services:
       resources:
         limits:
           cpus: "1"
+    networks:
+      - research-network
 
   nodejs-express-app:
     image: node:23
@@ -45,6 +49,8 @@ services:
       resources:
         limits:
           cpus: "1"
+    networks:
+      - research-network
   
   bun-vanila-app:
     image: oven/bun
