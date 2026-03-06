@@ -9,7 +9,7 @@
 ## Start in Docker
 
 ```bash
-docker-compose -f docker-compose.golang.yml -p research-golang up -d golang-vanila-app
+docker compose -f docker-compose.golang.yml -p research-golang up -d golang-vanila-app
 ```
 
 ## Native start app 

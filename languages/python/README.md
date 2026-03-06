@@ -11,12 +11,12 @@
 
 ### Granian
 ```bash 
-docker-compose -f docker-compose.python.yml -p research-python up -d python-granian-app
+docker compose -f docker-compose.python.yml -p research-python up -d python-granian-app
 ```
 
 ### FastAPI
 ```bash 
-docker-compose -f docker-compose.python.yml -p research-python up -d python-fastapi-app
+docker compose -f docker-compose.python.yml -p research-python up -d python-fastapi-app
 ```
 
 ## Native start 

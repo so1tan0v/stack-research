@@ -10,20 +10,20 @@
 
 ### ASP.NET Core 8 в режиме Minimal API
 ```bash 
-docker-compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet8-minimalapi-app
+docker compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet8-minimalapi-app
 ```
 
 ### ASP.NET Core 8 в режиме Controllers
 ```bash 
-docker-compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet8-controllers-app
+docker compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet8-controllers-app
 ```
 
 ### ASP.NET Core 9 в режиме Minimal API
 ```bash 
-docker-compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet9-minimalapi-app
+docker compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet9-minimalapi-app
 ```
 
 ### ASP.NET Core 9 в режиме Controllers
 ```bash 
-docker-compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet9-controllers-app
+docker compose -f docker-compose.dotnet.yml -p research-dotnet up -d dotnet9-controllers-app
 ```

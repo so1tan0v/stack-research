@@ -10,27 +10,27 @@
 
 ### Vanila
 ```bash 
-docker-compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-vanila-app
+docker compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-vanila-app
 ```
 
 ### Express
 ```bash 
-docker-compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-express-app
+docker compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-express-app
 ```
 
 ### Fastify
 ```bash 
-docker-compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-fastify-app
+docker compose -f docker-compose.javascript.yml -p research-javascript up -d nodejs-fastify-app
 ```
 
 ### Bun. Vanila
 ```bash 
-docker-compose -f docker-compose.javascript.yml -p research-javascript up -d bun-vanila-app
+docker compose -f docker-compose.javascript.yml -p research-javascript up -d bun-vanila-app
 ```
 
 ### Bun. Fastify
 ```bash 
-docker-compose -f docker-compose.javascript.yml -p research-javascript up -d bun-fastify-app
+docker compose -f docker-compose.javascript.yml -p research-javascript up -d bun-fastify-app
 ```
 
 ## Native start app 
